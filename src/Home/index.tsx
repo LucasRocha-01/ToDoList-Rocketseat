@@ -8,7 +8,9 @@ export function Home() {
   const [todoList, setTodoList] = useState([{ nome: 'lucas', checked: true }, { nome: 'Samanta', checked: false }])
   const [inputText, setInputText] = useState('')
 
-  const [counterDone, setCounterDone] = useState(0)
+  const checkedsTodoList = todoList.filter(item => item.checked === true)
+
+  const [counterDone, setCounterDone] = useState(checkedsTodoList.length)
 
   function handleAddInputToTodoList() {
 
@@ -16,10 +18,6 @@ export function Home() {
       setInputText('')
       return Alert.alert("Então...", "Você tem que escrever alguma coisa gracinha")
     }
-    // if (todoList.includes(inputText)) {
-    //   setInputText('')
-    //   return Alert.alert("Opa", "Você já adicionou esse item")
-    // }
 
     let newInput = {
       nome: inputText,
@@ -89,9 +87,15 @@ export function Home() {
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
-          <Text style={styles.listEmptyText}>
-            Ninguém chegou no evento ainda? Adicione participantes a sua lista de presença.
-          </Text>
+          <View style={styles.ListEmptyComponent}>
+            <Image source={require('./../../assets/Clipboard.png')} />
+            <Text style={styles.listEmptyTextBold}>
+              Você ainda não tem tarefas cadastradas
+            </Text>
+            <Text style={styles.listEmptyText}>
+              Crie tarefas e organize seus itens a fazer
+            </Text>
+          </View>
         )}
       />
     </View>

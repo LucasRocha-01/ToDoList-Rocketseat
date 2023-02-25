@@ -39,8 +39,21 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '100%'
   },
+  ListEmptyComponent: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderTopColor: '#808080',
+    borderTopWidth: 0.5,
+    paddingVertical: 30
+  },
+  listEmptyTextBold: {
+    marginTop: 20,
+    color: '#808080',
+    fontWeight: 'bold',
+  },
   listEmptyText: {
-
+    color: '#808080'
   },
   flatList: {
     width: '100%',
